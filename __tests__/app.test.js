@@ -55,4 +55,28 @@ describe('build-something-simple routes', () => {
     });
   });
 
+  it('updates choreographer info in database', async () => {
+    
+    
+    const res = await request(app)
+    .put('/api/v1/dancers/1')
+    .send({ 
+      "country": "USA", 
+      "genre": "Post-Modern", 
+      "id": "1", 
+      "method": true, 
+      "name": "Angie Hauser"
+    });
+
+    expect(res.body).toEqual({
+      "country": "USA", 
+      "genre": "Post-Modern", 
+      "id": "1", 
+      "method": true, 
+      "name": "Angie Hauser"
+    });
+  });
+
+  
+
 });
