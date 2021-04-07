@@ -29,4 +29,17 @@ describe('build-something-simple routes', () => {
     });
   });
 
+  it('gets a list of all choreographers', async () => {
+    const res = await request(app)
+    .get('/api/v1/dancers');
+
+    expect(res.body).toEqual([{
+      "country": "USA", 
+      "genre": "Post-Modern", 
+      "id": "1", 
+      "method": true, 
+      "name": "Bebe Miller"
+    }]);
+  });
+
 });
